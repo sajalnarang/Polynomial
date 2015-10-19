@@ -31,10 +31,9 @@ class Polynomial{
 	double getMaximumValue(double xleft,double xright);	//local maximum
 	double getMaximumValue();							//global maximum
 	double getMaxima(double xleft,double xright);		//x-coordinate at which local maxima occurs
-	double getMaxima();
-	double getMinimumValue(double xleft,double xright);
-	double getMinimumValue();
-	double getMinima(double xleft,double xright);
-	double getMinima();
-	
+	double getMaxima();									//x-coordinate at which global maxima occurs
+	double getMinimumValue(double xleft,double xright);	//local minimum
+	double getMinimumValue();							//global minimum
+	double getMinima(double xleft,double xright);		//x-coordinate at which local minima occurs
+	double getMinima();									//x-coordinate at which global minima occurs	
 }
