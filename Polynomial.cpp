@@ -58,7 +58,7 @@ void Polynomial::print()
 		cout<<a[i]<<"x^"<<i<<endl;	//TBD implementation of superscript
 }
 
-Polynomial Polynomial::derivative(const Polynomial &function)
+Polynomial Polynomial::derivative()
 {
 	Polynomial df_dx;
 	df_dx.n = n-1;
@@ -67,13 +67,18 @@ Polynomial Polynomial::derivative(const Polynomial &function)
 	return df_dx;
 }
 
-Polynomial Polynomial::integral(const Polynomial &function)		//TBD implementation of constant of integration
+Polynomial Polynomial::integral()		//TBD implementation of constant of integration
 {
 	Polynomial integral;
 	integral.n = n+1;
 	for(int i=0;i<=n;i++)
 		integral.a[i+1] = a[i]/i+1;
 	return integral;
+}
+
+void Polynomial::root()
+{
+	//if()	
 }
 
 Polynomial Polynomial::operator+(const Polynomial &p)
@@ -97,3 +102,86 @@ Polynomial Polynomial::operator+(const Polynomial &p)
 	}
 	return sum;
 }
+
+Polynomial Polynomial::operator-(const Polynomial &p)
+{
+	Polynomial difference;
+	if(n>p.n)
+	{
+		difference.n=n;
+		for(int i=0;i<p.n;i++)
+			difference.a[i]=a[i]-p.a[i];
+		for(i=p.n;i<n;i++)
+			difference.a[i]=a[i];
+	}
+	else
+	{
+		difference.n=p.n;
+		for(int i=0;i<n;i++)
+			difference.a[i]=a[i]-p.a[i];
+		for(i=n;i<p.n;i++)
+			difference.a[i]=p.a[i];
+	}
+	return difference;
+}
+
+Polynomial Polynomial::operator*(const Polynomial &p)
+{
+	Polynomial product;
+	for(int i=0;i<=n;i++)
+	{
+		int k=0;
+		for(int j=0;j<=n;j++)
+		{
+			if(i+j==k)
+				product.[k]+=a[i]*a[j];
+		
+		}	
+		k++;
+	}
+	return product;
+}
+
+Polynomial Polynomial::operator/(const Polynomial &p)
+{
+	Polynomial quotient;
+	p.n=m;
+	quotient.n=n-m;
+	Polynomial q;
+	q.Polynomial(n,a[]);
+	if(n>=m)
+	{
+		while((q.n)>=m)
+		{
+			quotient.a[n-m]=(q.[n]/p.a[m]);
+			p = p*quotient;
+			q = q-p;
+			(q.n)--;
+		}
+	}
+	return quotient;
+	else
+		quotient.Polynomial();
+}
+
+Polynomial Polynomial::operator%(const Polynomial &p)
+{
+	Polynomial remainder;
+	Polynomial q;
+	q.Polynomial(n,a[]);
+	remainder = q-((q/p)*p);
+}
+
+Polynomial Polynomial::operator^(const int &power)
+{
+	Polynomial nth_power
+	for(int i=1;i<=power;i++)
+		nth_power = nth_power*nth_power;
+	return nth_power;
+}
+
+double Polynomial::getMaximumValue(double xleft,double xright)
+{
+
+}
+

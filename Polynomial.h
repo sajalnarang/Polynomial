@@ -18,8 +18,8 @@ class Polynomial{
 	double valueAt(double x);	//to be changed
 	void read();
 	void print();
-	Polynomial derivative(const Polynomial &funtion);	//derivand
-	Polynomial integral(const Polynomial &function);	//integrand
+	Polynomial derivative();	//derivand
+	Polynomial integral();	//integrand
 	void plot(double xleft,double xright);
 	void root();
 	Polynomial operator+(const Polynomial &p);	//this.+(p) == this+p
