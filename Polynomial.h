@@ -1,19 +1,20 @@
 #include<iostream>
 #include<cmath>
+#include<vector>
 using namespace std;
 
 class Polynomial{
 	private:
 	
-	int n,numberofroots=0;	//n = degree of polynomial
-	double a[n+1];			//a = array of coefficients where a[i] is the coefficient of x^i
-	double roots[n];
-	double maxima[n-1],minima[n-1],inflection[n-1];	//arrays of coordinates of maxima, minima and points of inflection
+	static int n;	//n = degree of polynomial
+	vector<double> a ;
+	vector<double> roots ;
+	vector<double> maxima,minima,inflection;	//arrays of coordinates of maxima, minima and points of inflection
 		
 	public:
 	
 	Polynomial();
-	Polynomial(int n,double a[]);
+	Polynomial(int n,vector<double> coefficient);
 	Polynomial(const Polynomial &source);
 	double valueAt(double x);	//to be changed
 	void read();
@@ -24,7 +25,7 @@ class Polynomial{
 	void root();
 	Polynomial operator+(const Polynomial &p);	//this.+(p) == this+p
 	Polynomial operator-(const Polynomial &p);	//this.-(p) == this-p
-	Polynomial operator*(const Polynomial &p);	//this.*(p) == this*p
+	Polynomial operator*(Polynomial &p);			//this.*(p) == this*p
 	Polynomial operator/(const Polynomial &p);	//this./(p) == this/p
 	Polynomial operator%(const Polynomial &p);	//this.%(p) == this%p
 	Polynomial operator^(const int &n);			//this.^(n) == this^n
@@ -36,4 +37,4 @@ class Polynomial{
 	double getMinimumValue();							//global minimum
 	double getMinima(double xleft,double xright);		//x-coordinate at which local minima occurs
 	double getMinima();									//x-coordinate at which global minima occurs	
-}
+};
