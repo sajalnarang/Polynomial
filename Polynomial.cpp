@@ -1,48 +1,21 @@
 #include "Polynomial.h"
 using namespace std;
 
-void Polynomial::read()
+Polynomial::Polynomial()
 {
-	double coeff;
-	char answer='y';
-	cin >> answer;
-	int count =0;
-	while (answer=='y'||answer=='Y')
-	{
-		cout << "Enter coefficient of x^"<<count<<" : " ;
-		cin >> coeff;
-		a.push_back(coeff);
-		cout << "Continue taking input? (y/n) " ;
-		cin >> answer;
-		count ++ ;
-	}
+	//default constructor
+	//actual initialization is done in the read() function
 }
 
-Polynomial::Polynomial()	//Polynomial constructor
-{
-	read();
-	n = a.size();
-	roots.assign(n,0);
-	maxima.assign(n-1,0);
-	minima.assign(n-1,0);
-	inflection.assign(n-1,0);
-}
-
-Polynomial::Polynomial(int degree,vector<double> coefficient)		//Input constructor
+Polynomial::Polynomial(int degree,double coeff[])				//Input constructor
 {
 	n=degree;
-	for(int i=0;i<=n;i++)
-		coefficient.push_back(a[i]);
-	for(int i=0;i<=n-1;i++)
-		roots[i]="\0";
-	for(int i=0;i<=n-2;i++)
+	for(int i=0;i<n;i++)
 	{
-		maxima[i]="\0";
-		minima[i]="\0";
-		inflection[i]="\0";
+		a[i]=coeff[i];
 	}
 }
-
+//completed till here
 Polynomial::Polynomial(const Polynomial &source)		//Copy constructor
 {
 	n = source.n;
@@ -55,6 +28,22 @@ Polynomial::Polynomial(const Polynomial &source)		//Copy constructor
 		source.maxima.push_back(maxima[i]);
 		source.minima.push_back(minima[i]);
 		source.inflection.push_back(inflection[i]);
+	}
+}
+
+void Polynomial::read()
+{
+	cout<<"Enter number of terms";
+	int terms;
+	cin>>terms;
+	double temp[2][terms];
+	n=0;
+	for(int i=0;i<terms;i++)
+	{
+		cin>>temp[0][i];
+		cin>>temp[1][i];
+		if(temp[0][i]>n)
+			n=temp[0][i];
 	}
 }
 

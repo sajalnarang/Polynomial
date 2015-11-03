@@ -1,31 +1,31 @@
 #include<iostream>
 #include<cmath>
-#include<vector>
 using namespace std;
 
-class Polynomial{
+class Polynomial
+{
 	private:
-	
-	static int n;	//n = degree of polynomial
-	vector<double> a ;
-	vector<double> roots ;
-	vector<double> maxima,minima,inflection;	//arrays of coordinates of maxima, minima and points of inflection
+	int n;												//n = degree of polynomial
+	double a[n+1];
+	double roots[n];
+	double maxima[n-1],minima[n-1],inflection[n-1];		//arrays of coordinates of maxima, minima and points of inflection
 		
 	public:
 	
 	Polynomial();
-	Polynomial(int n,vector<double> coefficient);
+	Polynomial(int n,double a[]);
 	Polynomial(const Polynomial &source);
-	double valueAt(double x);	//to be changed
+	double valueAt(double x);							//to be changed
 	void read();
 	void print();
-	Polynomial derivative();	//derivand
-	Polynomial integral();	//integrand
+	Polynomial derivative();
+	Polynomial integral();
 	void plot(double xleft,double xright);
 	void root();
+	double operator()(double x);
 	Polynomial operator+(const Polynomial &p);	//this.+(p) == this+p
 	Polynomial operator-(const Polynomial &p);	//this.-(p) == this-p
-	Polynomial operator*(Polynomial &p);			//this.*(p) == this*p
+	Polynomial operator*(const Polynomial &p);	//this.*(p) == this*p
 	Polynomial operator/(const Polynomial &p);	//this./(p) == this/p
 	Polynomial operator%(const Polynomial &p);	//this.%(p) == this%p
 	Polynomial operator^(const int &n);			//this.^(n) == this^n
