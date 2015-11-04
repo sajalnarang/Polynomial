@@ -133,6 +133,11 @@ void Polynomial::root()
 	//if()	
 }
 */
+Polynomial& Polynomial::operator=(const Polynomial &p)
+{
+	//TBD
+}
+
 Polynomial Polynomial::operator+(const Polynomial &p)
 {
 	Polynomial sum;
@@ -198,7 +203,7 @@ Polynomial Polynomial::operator*(const Polynomial &p)
 
 Polynomial Polynomial::operator/(const Polynomial &q)
 {
-	Polynomial p(n,a);
+	/*Polynomial p(n,a);
 	Polynomial quotient(p);
 	quotient.n=p.n-q.n;
 	if(n<q.n)
@@ -217,7 +222,11 @@ Polynomial Polynomial::operator/(const Polynomial &q)
 		s3.print();
 		quotient = s1 + (s2/q);
 		quotient.print();
-	}
+	}*/
+	
+	Polynomial p(n,a);
+	Polynomial quotient=p;
+	
 }
 /*
 Polynomial Polynomial::operator%(const Polynomial &p)

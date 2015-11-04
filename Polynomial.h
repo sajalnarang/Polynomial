@@ -5,10 +5,11 @@ using namespace std;
 class Polynomial
 {
 	private:
-	int n;												//n = degree of polynomial
+	int n;													//n = degree of polynomial
 	double a[1000];
 	double roots[1000];
 	double maxima[1000],minima[1000],inflection[1000];		//arrays of coordinates of maxima, minima and points of inflection
+	double maximum,minimum;
 		
 	public:
 	
@@ -23,6 +24,7 @@ class Polynomial
 	void plot(double xleft,double xright);
 	void root();
 	double operator()(double x);
+	Polynomial& operator=(const Polynomial &p);
 	Polynomial operator+(const Polynomial &p);	//this.+(p) == this+p
 	Polynomial operator-(const Polynomial &p);	//this.-(p) == this-p
 	Polynomial operator*(const Polynomial &p);	//this.*(p) == this*p

@@ -12,7 +12,7 @@ int main()
 	r.print();
 	cout<<q(1)<<endl;
 	cout<<r(1)<<endl;*/
-	Polynomial s = p / q;
+	Polynomial s = p;
 	s.print();
 	
 }
