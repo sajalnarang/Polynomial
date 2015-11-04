@@ -2,17 +2,9 @@
 
 int main()
 {
-	Polynomial p;
+	Polynomial p,q;
 	p.read();
-	cout<<p(2)<<endl;
-	Polynomial q = p.derivative();
-	Polynomial r = p.integral();
-	/*p.print();
-	q.print();
+	q.read();
+	Polynomial r=p/q;
 	r.print();
-	cout<<q(1)<<endl;
-	cout<<r(1)<<endl;*/
-	Polynomial s = p;
-	s.print();
-	
 }

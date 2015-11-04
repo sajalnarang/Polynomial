@@ -18,7 +18,7 @@ Polynomial::Polynomial()
 Polynomial::Polynomial(int degree,double coeff[])				//Input constructor
 {
 	n=degree;
-	for(int i=0;i<n;i++)
+	for(int i=0;i<=n;i++)
 	{
 		a[i]=coeff[i];
 	}
@@ -54,7 +54,7 @@ void Polynomial::read()											//coefficient!=0
 		if(temp[0][i]>n)
 			n=temp[0][i];
 		if(temp[1][i]!=0)
-			a[(int)temp[0][i]]=temp[1][i];
+			a[(int)temp[0][i]]+=temp[1][i];
 	}
 }
 
@@ -188,16 +188,16 @@ Polynomial Polynomial::operator*(const Polynomial &p)
 {
 	Polynomial product;
 	product.n=n+p.n;
-	for(int i=0;i<=n;i++)
+	for(int k=0;k<=product.n;k++)
 	{
-		int k=0;
-		for(int j=0;j<=p.n;j++)
+		for(int i=0;i<=n;i++)
 		{
-			if(i+j==k)
-				product.a[k]+=a[i]*p.a[j];
-			k++;
-		}	
-		
+			for(int j=0;j<=p.n;j++)
+			{
+				if(i+j==k)
+					product.a[k]+=a[i]*p.a[j];
+			}
+		}
 	}
 	product.a[product.n]=a[n]*p.a[p.n];
 	return product;
@@ -205,30 +205,36 @@ Polynomial Polynomial::operator*(const Polynomial &p)
 
 Polynomial Polynomial::operator/(const Polynomial &q)
 {
-	/*Polynomial p(n,a);
-	Polynomial quotient(p);
-	quotient.n=p.n-q.n;
+	Polynomial dividend(*this);
 	if(n<q.n)
 	{
-		return quotient;
+		cout<<"Base case";
+		double arr[1]={0};
+		Polynomial zero(0,arr);
+		return zero;
 	}
 	else
 	{
 		Polynomial s1;
-		s1.n=quotient.n;
+		s1.n=dividend.n-q.n;
 		s1.a[(s1.n)]=a[n]/q.a[q.n];
+		cout<<"s1=";
 		s1.print();
 		Polynomial s2=s1*q;
+		cout<<"s2=";
 		s2.print();
-		Polynomial s3=p-s2;
+		Polynomial s3=dividend-s2;
+		cout<<"s3=";
 		s3.print();
-		quotient = s1 + (s2/q);
+		Polynomial s4=s3/q;
+		cout<<"s4=";
+		s4.print();
+		Polynomial quotient(s1 + s4);
+		quotient.getDegree();
+		cout<<"Q=";
 		quotient.print();
-	}*/
-	
-	Polynomial p(n,a);
-	Polynomial quotient=p;
-	
+		return quotient;
+	}
 }
 /*
 Polynomial Polynomial::operator%(const Polynomial &p)

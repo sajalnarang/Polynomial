@@ -1,4 +1,4 @@
-#inlude<simplecpp>
+#include "Polynomial.h"
 
 double Polynomial::single_root()
 {
