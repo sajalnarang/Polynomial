@@ -106,6 +106,8 @@ void Polynomial::print()
 		else if(i==1)
 			cout<<"x";
 	}
+	if(abs(a[0])==1)
+		cout<<"1";
 	cout<<endl;
 }
 
