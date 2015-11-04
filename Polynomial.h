@@ -6,18 +6,18 @@ class Polynomial
 {
 	private:
 	int n;												//n = degree of polynomial
-	double a[n+1];
-	double roots[n];
-	double maxima[n-1],minima[n-1],inflection[n-1];		//arrays of coordinates of maxima, minima and points of inflection
+	double a[1000];
+	double roots[1000];
+	double maxima[1000],minima[1000],inflection[1000];		//arrays of coordinates of maxima, minima and points of inflection
 		
 	public:
 	
 	Polynomial();
 	Polynomial(int n,double a[]);
 	Polynomial(const Polynomial &source);
-	double valueAt(double x);							//to be changed
 	void read();
 	void print();
+	void getDegree();
 	Polynomial derivative();
 	Polynomial integral();
 	void plot(double xleft,double xright);
@@ -26,8 +26,8 @@ class Polynomial
 	Polynomial operator+(const Polynomial &p);	//this.+(p) == this+p
 	Polynomial operator-(const Polynomial &p);	//this.-(p) == this-p
 	Polynomial operator*(const Polynomial &p);	//this.*(p) == this*p
-	Polynomial operator/(const Polynomial &p);	//this./(p) == this/p
-	Polynomial operator%(const Polynomial &p);	//this.%(p) == this%p
+	Polynomial operator/(const Polynomial &q);	//this./(p) == this/p
+	Polynomial operator%(const Polynomial &q);	//this.%(p) == this%p
 	Polynomial operator^(const int &n);			//this.^(n) == this^n
 	double getMaximumValue(double xleft,double xright);	//local maximum
 	double getMaximumValue();							//global maximum
