@@ -1,14 +1,15 @@
 #include "Polynomial.h"
 
-double Polynomial::single_root()
+double Polynomial::singleRoot()
 {
 	double x=0 ;
-	long double epsilon = 0.00000000000000000001;
+	double epsilon = 0.001;
+	cout<<epsilon;
 	Polynomial q(n,a);
-	Polynomial df_dx = q.derivative();
+	Polynomial df_dx(q.derivative());
 	while(abs(q(x))>epsilon)
 	{
-		if(df_dx!=0)
+		if(df_dx(x)!=0)
 		{
 			x = x - (q(x)/df_dx(x));
 			for(int i=0;i<n;i++)
@@ -20,26 +21,28 @@ double Polynomial::single_root()
 		else
 			x+=0.1;
 	}
-	return x
+	return x;
 }
 
-void Polynomial::roots()
+void Polynomial::root()
 {
 	Polynomial p(n,a);
-	for(i=0;i<n;i++)
+	for(int i=0;i<n;i++)
 	{
-		double x = p.single_root();
+		double x = p.singleRoot();
 		roots[i]=x;
-		Polynomial q(1,{-x,1});
+		double arr[2] = {-x,1};
+		Polynomial q(1,arr);
 		p=p/q;
 	}
 }
 
 void Polynomial::printRoots()
 {
-	for(int i=0;i<n;i++)
+	getDegree();
+	for(int i=0;i<n-1;i++)
 	{
 		cout << roots[i] << " , ";
 	}
-	cout << endl;
+	cout << roots[n-1] << endl;
 }

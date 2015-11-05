@@ -2,9 +2,8 @@
 
 int main()
 {
-	Polynomial p,q;
+	Polynomial p;
 	p.read();
-	q.read();
-	Polynomial r=p/q;
-	r.print();
+	p.root();
+	p.printRoots();
 }
