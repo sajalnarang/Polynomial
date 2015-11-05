@@ -11,9 +11,15 @@ class Polynomial
 	double maxima[1000],minima[1000],inflection[1000];		//arrays of coordinates of maxima, minima and points of inflection
 	double maximum,minimum;
 	double singleRoot();
+<<<<<<< HEAD
 
 	public:
 
+=======
+		
+	public:
+	
+>>>>>>> 94250141721c63954fd77a2b49a20e20378da185
 	Polynomial();
 	Polynomial(int n,double a[]);
 	Polynomial(const Polynomial &source);
@@ -26,7 +32,11 @@ class Polynomial
 	void root();
 	void printRoots();
 	double operator()(double x);
+<<<<<<< HEAD
 	//Polynomial& operator=(const Polynomial &p);
+=======
+	Polynomial& operator=(const Polynomial &p);
+>>>>>>> 94250141721c63954fd77a2b49a20e20378da185
 	Polynomial operator+(const Polynomial &p);	//this.+(p) == this+p
 	Polynomial operator-(const Polynomial &p);	//this.-(p) == this-p
 	Polynomial operator*(const Polynomial &p);	//this.*(p) == this*p
@@ -40,5 +50,9 @@ class Polynomial
 	double getMinimumValue(double xleft,double xright);	//local minimum
 	double getMinimumValue();							//global minimum
 	double getMinima(double xleft,double xright);		//x-coordinate at which local minima occurs
+<<<<<<< HEAD
 	double getMinima();									//x-coordinate at which global minima occurs
+=======
+	double getMinima();									//x-coordinate at which global minima occurs	
+>>>>>>> 94250141721c63954fd77a2b49a20e20378da185
 };

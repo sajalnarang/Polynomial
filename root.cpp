@@ -3,7 +3,12 @@
 double Polynomial::singleRoot()
 {
 	double x=0 ;
+<<<<<<< HEAD
 	double epsilon = 0.000000001
+=======
+	double epsilon = 0.001;
+	cout<<epsilon;
+>>>>>>> 94250141721c63954fd77a2b49a20e20378da185
 	Polynomial q(n,a);
 	Polynomial df_dx(q.derivative());
 	while(abs(q(x))>epsilon)

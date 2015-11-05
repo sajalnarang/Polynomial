@@ -12,7 +12,11 @@ Polynomial::Polynomial()
 		maxima[i]=0;
 		minima[i]=0;
 		inflection[i]=0;
+<<<<<<< HEAD
 	}
+=======
+	}	
+>>>>>>> 94250141721c63954fd77a2b49a20e20378da185
 }
 
 Polynomial::Polynomial(int degree,double coeff[])				//Input constructor
@@ -64,7 +68,11 @@ double Polynomial::operator()(double x)
 	for(int i=0;i<=n;i++)
 	{
 		value+=a[i]*(pow(x,i));
+<<<<<<< HEAD
 	}
+=======
+	}	
+>>>>>>> 94250141721c63954fd77a2b49a20e20378da185
 	return value;
 }
 
@@ -76,11 +84,14 @@ void Polynomial::getDegree()
 			n=i;
 			return;
 		}
+<<<<<<< HEAD
     if(a[0]==0)
     {
         n=0;
         return;
     }
+=======
+>>>>>>> 94250141721c63954fd77a2b49a20e20378da185
 }
 
 void Polynomial::print()
@@ -125,7 +136,11 @@ Polynomial Polynomial::derivative()
 	return df_dx;
 }
 
+<<<<<<< HEAD
 Polynomial Polynomial::integral()
+=======
+Polynomial Polynomial::integral()		
+>>>>>>> 94250141721c63954fd77a2b49a20e20378da185
 {
 	Polynomial integral;
 	integral.n = n+1;
@@ -134,11 +149,24 @@ Polynomial Polynomial::integral()
 	integral.a[0]=0;
 	return integral;
 }
+<<<<<<< HEAD
 
 /*Polynomial& Polynomial::operator=(const Polynomial &p)
 {
 	//TBD
 }*/
+=======
+/*
+void Polynomial::root()
+{
+	//if()	
+}
+*/
+Polynomial& Polynomial::operator=(const Polynomial &p)
+{
+	//TBD
+}
+>>>>>>> 94250141721c63954fd77a2b49a20e20378da185
 
 Polynomial Polynomial::operator+(const Polynomial &p)
 {
@@ -208,6 +236,10 @@ Polynomial Polynomial::operator/(const Polynomial &q)
 	Polynomial dividend(*this);
 	if(n<q.n)
 	{
+<<<<<<< HEAD
+=======
+		cout<<"Base case";
+>>>>>>> 94250141721c63954fd77a2b49a20e20378da185
 		double arr[1]={0};
 		Polynomial zero(0,arr);
 		return zero;
@@ -217,6 +249,7 @@ Polynomial Polynomial::operator/(const Polynomial &q)
 		Polynomial s1;
 		s1.n=dividend.n-q.n;
 		s1.a[(s1.n)]=a[n]/q.a[q.n];
+<<<<<<< HEAD
 		s1.getDegree();
 		Polynomial s2=s1*q;
 		s2.getDegree();
@@ -226,6 +259,22 @@ Polynomial Polynomial::operator/(const Polynomial &q)
 		s4.getDegree();
 		Polynomial quotient(s1+s4);
 		quotient.getDegree();
+=======
+		cout<<"s1=";
+		s1.print();
+		Polynomial s2=s1*q;
+		cout<<"s2=";
+		s2.print();
+		Polynomial s3=dividend-s2;
+		cout<<"s3=";
+		s3.print();
+		Polynomial s4=s3/q;
+		cout<<"s4=";
+		s4.print();
+		Polynomial quotient(s1 + s4);
+		quotient.getDegree();
+		cout<<"Q=";
+>>>>>>> 94250141721c63954fd77a2b49a20e20378da185
 		quotient.print();
 		return quotient;
 	}
